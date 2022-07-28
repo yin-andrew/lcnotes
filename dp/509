@@ -1,0 +1,25 @@
+
+# 509. Fibonacci Number
+
+# basic: O(n) time complexity O(n) space complexity
+
+def fib(n):
+    if n == 0: return 0
+    if n == 1: return 1
+    return fib(n-1) + fib(n-2)
+
+
+# memoized recursive
+class Solution:
+
+    dp = {}
+    dp[0] = 0
+    dp[1] = 1
+
+    def fib(self, n):
+        if n in dp:
+            return dp[n]
+        self.dp[n] = self.fib(n-1) + self.fib(n-2)
+        return self.dp[n]
+
+
